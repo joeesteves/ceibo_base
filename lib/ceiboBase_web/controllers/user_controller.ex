@@ -3,6 +3,9 @@ defmodule CeiboBaseWeb.UserController do
 
   alias CeiboBase.Accounts
   alias CeiboBase.Accounts.User
+  alias CeiboBaseWeb.Auth
+
+  plug :authenticate_user when action in [:index, :show]
 
   def index(conn, _params) do
     users = Accounts.list_users()
@@ -18,6 +21,7 @@ defmodule CeiboBaseWeb.UserController do
     case Accounts.create_user(user_params) do
       {:ok, user} ->
         conn
+        |> Auth.login(user)
         |> put_flash(:info, "User created successfully.")
         |> redirect(to: user_path(conn, :show, user))
       {:error, %Ecto.Changeset{} = changeset} ->
