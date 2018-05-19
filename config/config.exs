@@ -16,9 +16,9 @@ config :ceiboBase, CeiboBase.Guardian,
 
 # Configures GuardianPipeLine
 
-config :ceiboBase, CeiboBaseWeb.Auth.AuthAccessPipeline,
+config :ceiboBase, CeiboBaseWeb.Guardian.AuthAccessPipeline,
   module: CeiboBase.Guardian,
-  error_handler: CeiboBaseWeb.Auth.AuthErrorHandler
+  error_handler: CeiboBaseWeb.Guardian.AuthErrorHandler
 
 # Configures the endpoint
 config :ceiboBase, CeiboBaseWeb.Endpoint,

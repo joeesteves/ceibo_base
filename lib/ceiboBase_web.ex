@@ -23,14 +23,14 @@ defmodule CeiboBaseWeb do
       import Plug.Conn
       import CeiboBaseWeb.Router.Helpers
       import CeiboBaseWeb.Gettext
-
     end
   end
 
   def view do
     quote do
-      use Phoenix.View, root: "lib/ceiboBase_web/templates",
-                        namespace: CeiboBaseWeb
+      use Phoenix.View,
+        root: "lib/ceiboBase_web/templates",
+        namespace: CeiboBaseWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]

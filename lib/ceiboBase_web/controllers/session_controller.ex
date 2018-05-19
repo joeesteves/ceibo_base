@@ -21,8 +21,7 @@ defmodule CeiboBaseWeb.SessionController do
     end
   end
 
-  def delete(conn, _) do
-    IO.inspect "LOGGIN OUT"
+  def drop(conn, _) do
     conn
     |> Auth.logout()
     |> put_flash(:info, "Hasta la próxima!")

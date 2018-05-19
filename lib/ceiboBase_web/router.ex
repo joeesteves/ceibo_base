@@ -7,7 +7,6 @@ defmodule CeiboBaseWeb.Router do
     plug(:fetch_flash)
     plug(:protect_from_forgery)
     plug(:put_secure_browser_headers)
-    plug(CeiboBaseWeb.Auth, repo: CeiboBase.Repo)
   end
 
   pipeline :api do
@@ -15,7 +14,7 @@ defmodule CeiboBaseWeb.Router do
   end
 
   pipeline :auth do
-    plug(CeiboBaseWeb.Auth.AuthAccessPipeline)
+    plug(CeiboBaseWeb.Guardian.AuthAccessPipeline)
   end
 
 
@@ -24,7 +23,8 @@ defmodule CeiboBaseWeb.Router do
     pipe_through(:browser)
     get("/", PageController, :index)
     resources("/users", UserController, only: [:new, :create, :edit, :update])
-    resources("/sessions", SessionController, only: [:new, :create, :delete])
+    resources("/sessions", SessionController, only: [:new, :create])
+    delete("/sessions/drop", SessionController, :drop)
   end
 
   scope "/", CeiboBaseWeb do
