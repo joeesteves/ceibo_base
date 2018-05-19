@@ -2,22 +2,35 @@ defmodule CeiboBaseWeb.Router do
   use CeiboBaseWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_flash
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
-    plug CeiboBaseWeb.Auth, repo: CeiboBase.Repo
+    plug(:accepts, ["html"])
+    plug(:fetch_session)
+    plug(:fetch_flash)
+    plug(:protect_from_forgery)
+    plug(:put_secure_browser_headers)
+    plug(CeiboBaseWeb.Auth, repo: CeiboBase.Repo)
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
+  end
+
+  pipeline :auth do
+    plug(CeiboBaseWeb.Auth.AuthAccessPipeline)
+  end
+
+
+  scope "/", CeiboBaseWeb do
+    # Use the default browser stack
+    pipe_through(:browser)
+    get("/", PageController, :index)
+    resources("/users", UserController, only: [:new, :create, :edit, :update])
+    resources("/sessions", SessionController, only: [:new, :create, :delete])
   end
 
   scope "/", CeiboBaseWeb do
-    pipe_through :browser # Use the default browser stack
-    get "/", PageController, :index
-    resources "/users", UserController
+    # Use the default browser stack
+    pipe_through([:browser, :auth])
+    resources("/users", UserController, only: [:index, :show, :delete])
   end
 
   # Other scopes may use custom stacks.

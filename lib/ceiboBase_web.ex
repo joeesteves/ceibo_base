@@ -23,7 +23,6 @@ defmodule CeiboBaseWeb do
       import Plug.Conn
       import CeiboBaseWeb.Router.Helpers
       import CeiboBaseWeb.Gettext
-      import CeiboBaseWeb.Auth, only: [authenticate_user: 2]
 
     end
   end

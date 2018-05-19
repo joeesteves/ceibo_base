@@ -14,6 +14,12 @@ config :ceiboBase, CeiboBase.Guardian,
   issuer: "ceiboBase",
   secret_key: "mzRoWUUAbgH4XOmfb9zoXh/3ErxUBlXDhP/1UH3DdvaMCqlp+em9VMFubctjMGOa"
 
+# Configures GuardianPipeLine
+
+config :ceiboBase, CeiboBaseWeb.Auth.AuthAccessPipeline,
+  module: CeiboBase.Guardian,
+  error_handler: CeiboBaseWeb.Auth.AuthErrorHandler
+
 # Configures the endpoint
 config :ceiboBase, CeiboBaseWeb.Endpoint,
   url: [host: "localhost"],
