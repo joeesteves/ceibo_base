@@ -9,13 +9,17 @@ use Mix.Config
 config :ceiboBase,
   ecto_repos: [CeiboBase.Repo]
 
+# Configures Guardian
+config :ceiboBase, CeiboBase.Guardian,
+  issuer: "ceiboBase",
+  secret_key: "mzRoWUUAbgH4XOmfb9zoXh/3ErxUBlXDhP/1UH3DdvaMCqlp+em9VMFubctjMGOa"
+
 # Configures the endpoint
 config :ceiboBase, CeiboBaseWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "4ntVSROhkwXahcj9VuTqRRm804z4eQcSd8Js0mF+6Tshn2MLEAPuzcDOdsl8Xg6p",
   render_errors: [view: CeiboBaseWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: CeiboBase.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: CeiboBase.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -24,4 +28,4 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"
