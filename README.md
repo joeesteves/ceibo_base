@@ -1,5 +1,13 @@
-# CeiboBase
+# CeiboBase Usage
 
+* Clone This Repo
+* Replace globally ceiboBase with newName
+* Replace globally ceibobase with newname
+* Replace globally CeiboBase with NewName
+* Manually rename file and folder ceiboBase_web to newName_web
+* Manually rename file and folder ceiboBase to newName
+
+# Start Server
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
@@ -17,13 +25,3 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
-
-## Usage
-
-<!-- TODO: Make script to automate name changing -->
-
-* Replace globally ceiboBase with newName
-* Replace globally ceibobase with newname
-* Replace globally CeiboBase with NewName
-* Manually rename file and folder ceiboBase_web to newName_web
-* Manually rename file and folder ceiboBase to newName
