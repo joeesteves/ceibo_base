@@ -1,11 +1,18 @@
 # CeiboBase Usage
 
 * Clone This Repo
+
 * Replace globally ceiboBase with newName
 * Replace globally ceibobase with newname
 * Replace globally CeiboBase with NewName
-* Manually rename file and folder ceiboBase_web to newName_web
-* Manually rename file and folder ceiboBase to newName
+* Manually rename file and folder lib/ceiboBase_web to lib/newName_web
+* Manually rename file and folder lib/ceiboBase to lib/newName
+* Manually rename file and folder test/ceiboBase_web to test/newName_web
+* Manually rename file and folder test/ceiboBase to test/newName_web
+
+
+* cd assets
+* npm install
 
 # Start Server
 To start your Phoenix server:
