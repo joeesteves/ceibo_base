@@ -36,7 +36,9 @@ erl_crash.dump
 # variables.
 /config/*.secret.exs
 ```
-
+* Create Git Repo
+* Remove .git folder
+* Push to github
 
 # Start Server
 To start your Phoenix server:
