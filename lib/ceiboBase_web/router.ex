@@ -17,6 +17,11 @@ defmodule CeiboBaseWeb.Router do
     plug(CeiboBaseWeb.Guardian.AuthAccessPipeline)
   end
 
+  pipeline :landing do
+    plug(:put_layout, {CeiboBaseWeb.LayoutView, "landing.html"})
+  end
+
+
 
   scope "/", CeiboBaseWeb do
     # Use the default browser stack

@@ -27,6 +27,9 @@ config :ceiboBase, CeiboBaseWeb.Endpoint,
   render_errors: [view: CeiboBaseWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: CeiboBase.PubSub, adapter: Phoenix.PubSub.PG2]
 
+#Sets default locale
+config :ceiboBase, CeiboBaseWeb.Gettext, default_locale: "es"
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
